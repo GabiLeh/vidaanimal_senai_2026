@@ -6,6 +6,8 @@ struct animal {
     int identificacao;
     char nome[20];
     char raca[20];
+    int idade;
+    char tsanguineo[2];
     int b;
 };
 struct animal lista[MAX_ANIMAIS];
@@ -26,6 +28,11 @@ void cadastrar() {
         scanf("%s", a.nome);
         printf("Qual a raça? ");
         scanf("%s", a.raca);
+        printf("Idade? ");
+        scanf("%d", &a.idade);
+        fflush(stdin);
+        printf("Tipo sanguíneo? ");
+        scanf("%s", a.tsanguineo);
         lista[total] = a;
         total++;
         printf("Animal cadastrado\n");
@@ -38,7 +45,7 @@ void consultar() {
     int cadastrados = 0;
     for (int i = 0; i < total; i++) {
         if (lista[i].b == 1) {
-            printf("ID: %d\tNome: %s\tRaça: %s\n", lista[i].identificacao, lista[i].nome, lista[i].raca);
+            printf("ID: %d\tNome: %s\tRaça: %s\tIdade: %d\tTipo sanguíneo: %s\n", lista[i].identificacao, lista[i].nome, lista[i].raca, lista[i].idade, lista[i].tsanguineo);
             cadastrados++;
         }
     }
@@ -56,6 +63,10 @@ void alterar() {
             scanf("%s", lista[i].nome);
             printf("Raça: ");
             scanf("%s", lista[i].raca);
+            printf("Idade? ");
+            scanf("%d", &lista[i].idade);
+            printf("Tipo sanguíneo? ");
+            scanf("%s", lista[i].tsanguineo);
             printf("Dados atualizados\n");
             return;
         }
@@ -76,6 +87,7 @@ void excluir() {
     }
     printf("Animal com ID %d não encontrado.\n", idbusca);
 }
+
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     int op = 0;
