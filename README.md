@@ -1,2 +1,1 @@
-# vidaanimal_senai_2026
-# vidaanimal_senai_2026
+# Vida Animal - Atividade Avaliativa SENAI 2026
